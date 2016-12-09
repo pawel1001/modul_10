@@ -11,12 +11,15 @@ function randomString() {
 }
 
 function Column(name) {
-    var self = this; 
-
-    this.id = randomString();
-    this.name = name;
-    this.$element = createColumn();
-
+	if (name !== undefined) {
+		var self = this; 
+		this.id = randomString();
+		this.name = name;
+		this.$element = createColumn();
+    } else {
+       alert('undefined argument');
+    }
+	
     function createColumn() {
 		  Column.prototype = {
 			addCard: function(card) {
